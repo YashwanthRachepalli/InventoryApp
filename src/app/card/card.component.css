@@ -1,0 +1,30 @@
+.card {
+    max-width: 300px;
+    margin: auto;
+    text-align: center;
+    font-family: arial;
+    cursor: pointer;
+  }
+  .price {
+    opacity: .6;
+    padding-top: 7px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 14px;
+  }
+  a{
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 15px;
+    text-decoration: none;
+    color: black
+  }
+ img{
+    width: 50%;
+    margin-right: 0;
+    margin-left: 0;
+    margin: auto;
+    margin-top: 7px;
+ }
+ 

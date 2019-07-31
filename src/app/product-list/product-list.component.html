@@ -1,0 +1,10 @@
+<app-header [count]="count"></app-header>
+<br><br><br><br><br><br>
+<div class="container-fluid">
+<div class="row">
+    <div class="col-3" *ngFor="let product of products">
+        <app-card [product]="product"></app-card>
+    </div>
+</div>
+</div>
+

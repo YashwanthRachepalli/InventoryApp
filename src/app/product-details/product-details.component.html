@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="row">
+        <div class="col-8">
+            <img src="{{product.imageURL}}">
+        </div>
+        <div class="col-4">
+            <h4 class="title">
+                {{ product.name }}
+            </h4>
+            <p style="font-size: 28px">${{ product.price }}</p>
+            <p *ngIf="product.description">
+                {{product.description}}
+            </p>
+            <button (click)="addToCart(product)" [disabled]= "flag">Add to Cart</button>
+            <!-- <button class="blur" *ngIf="flag" disabled>Added to Cart</button> -->
+        </div>
+    </div>
+</div>

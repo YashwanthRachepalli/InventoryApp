@@ -1,0 +1,20 @@
+<nav class="navbar navbar-expand-sm bg-primary navbar-dark sticky">
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item ">
+            <a class="nav-link active" routerLink="/home">Home</a>
+        </li>
+    </ul>
+    <ul class="navbar-nav" *ngIf="user == 'customer'">
+        <li class="nav-item" routerLink="/cart" style="display: -webkit-inline-box">
+            <img src="assets/cart.png" style="height: 24px; margin-top: 6px">
+            <span *ngIf="count!=0" class='badge badge-warning' id='lblCartCount'> {{count}} </span>
+            <a class="nav-link active">Cart</a>
+        </li>
+    </ul>
+    <ul class="navbar-nav" *ngIf="user == 'supplier'">
+        <li class="nav-item">
+            <img src="assets/add.png" style="height: 24px; margin-top: 6px">
+            <button class="addItem">Add Item</button>
+        </li>
+    </ul>
+</nav>

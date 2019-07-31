@@ -1,0 +1,82 @@
+<div class="container">
+    	<div class="row">
+			<div class="col-md-6 col-md-offset-3">
+				<div class="panel panel-login">
+					<div class="panel-heading">
+						<div class="row">
+							<div class="col-xs-6">
+								<a [ngClass]="{'active': !flag }" id="login-form-link" (click)="enableForm('login')">Login</a>
+							</div> 
+							<div class="col-xs-6">
+								<a [ngClass]="{'active': flag }" id="register-form-link" (click)="enableForm('register')">Register</a>
+							</div>
+						</div>
+						<hr>
+					</div>
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-lg-12">
+								<form id="login-form" style="display: block;" [formGroup]="loginForm" *ngIf="!flag" (ngSubmit)="validateCredentials()">
+									<div class="form-group">
+										<input type="text" name="username" id="username" tabindex="1" class="form-control" formControlName="username" placeholder="Username" value="">
+									</div>
+									<div class="form-group">
+										<input type="password" name="password" id="password" tabindex="2" class="form-control"  formControlName="password" placeholder="Password">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="radio-inline">
+                                            <input type="radio" name="memberType" checked formControlName="memberType" value="customer">Customer
+                                        </label> &nbsp;&nbsp;
+                                        <label class="radio-inline">
+                                            <input type="radio" name="memberType" formControlName="memberType" value="supplier">Supplier
+                                        </label> &nbsp;&nbsp;
+                                        <label class="radio-inline">
+                                            <input type="radio" name="memberType" formControlName="memberType" value="admin">Admin
+                                        </label>
+									</div>
+									<div class="text-danger">
+										<span>{{ errMsg }}</span>
+									</div>
+									<div class="form-group">
+										<div class="row">
+											<div class="col-sm-6 col-sm-offset-3">
+												<input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login" value="Log In" [disabled]="!loginForm.valid">
+											</div>
+										</div>
+                                    </div>
+								</form>
+								<form id="register-form" style="display: block;" [formGroup]="registerForm" *ngIf="flag" (ngSubmit)="addMember(registerForm)">
+									<div class="form-group">
+										<input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" formControlName="username" value="">
+									</div>
+									<div class="form-group">
+                                        <select class="form-control" formControlName="memberType">
+                                            <option value="customer" selected>Customer</option>
+											<option value="supplier">Supplier</option>
+											<option value="admin">Admin</option>
+                                        </select>
+									</div>
+									<div class="form-group">
+										<input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password" formControlName="password">
+									</div>
+									<div class="form-group">
+										<input type="password" name="confirm-password" id="confirm-password" tabindex="2" class="form-control" placeholder="Confirm Password" formControlName="cnfmpassword">
+									</div>
+									<div class="text-danger">
+										<span *ngIf="(registerForm.hasError('passwordsMisMatch'))">passwords does not match</span>
+									</div>
+									<div class="form-group">
+										<div class="row">
+											<div class="col-sm-6 col-sm-offset-3">
+												<input type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-login" value="Register Now" [disabled]="!registerForm.valid">
+											</div>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
